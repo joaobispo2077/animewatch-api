@@ -18,3 +18,15 @@ model Categories {
   description      String?
   description_link String?
 }
+
+model Audit {
+  id         String   @id @default(uuid())
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  changedAt  DateTime @default(now()) // when
+  action     String // what
+  author     String // who
+  resource   String // where
+  resourceId String // where
+  origin     String // where
+}
